@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "pS4rFo27a7KjjHoyYRKgfIaOGhkS4223v+8PJb9XTg0=",
+  "Source": "GymReservationWebApi",
+  "BasePath": "_content/GymReservationWebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

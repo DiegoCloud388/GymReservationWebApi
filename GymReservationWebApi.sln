@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymReservationWebApi", "GymReservationWebApi\GymReservationWebApi.csproj", "{1C25E60A-AAFE-410C-87DA-42EC04424DDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C25E60A-AAFE-410C-87DA-42EC04424DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C25E60A-AAFE-410C-87DA-42EC04424DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C25E60A-AAFE-410C-87DA-42EC04424DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C25E60A-AAFE-410C-87DA-42EC04424DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {787E7B89-0F24-4A9D-82D1-11C9C11FFF0C}
+	EndGlobalSection
+EndGlobal
