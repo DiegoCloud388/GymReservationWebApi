@@ -1,6 +1,6 @@
 ﻿using GymReservationWebApi.Modules.GymReservation.CreateNewReservation;
 using GymReservationWebApi.Modules.GymReservation.GetReservationByUser;
-using GymReservationWebApi.Modules.GymReservation.GetReservationForDay;
+using GymReservationWebApi.Modules.GymReservation.GetReservationForDate;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -62,11 +62,11 @@ namespace GymReservationWebApi.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("get-reservation-for-selected-day")]
-        public async Task<ActionResult<IList<ResultGetReservationForDay>>> GetReservationForDay(
-            DateTime selectedDay, CancellationToken cancellationToken = default)
+        [Route("get-reservation-for-selected-date")]
+        public async Task<ActionResult<IList<ResultGetReservationForDate>>> GetReservationForDay(
+            DateTime selectedDate, CancellationToken cancellationToken = default)
         {
-            var query = new QueryGetReservationForDay(selectedDay);
+            var query = new QueryGetReservationForDate(selectedDate);
 
             var result = await mediator.Send(query, cancellationToken);
 

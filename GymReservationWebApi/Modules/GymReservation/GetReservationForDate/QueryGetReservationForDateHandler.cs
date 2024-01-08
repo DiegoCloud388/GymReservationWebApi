@@ -2,28 +2,28 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace GymReservationWebApi.Modules.GymReservation.GetReservationForDay
+namespace GymReservationWebApi.Modules.GymReservation.GetReservationForDate
 {
-    public class QueryGetReservationForDayHandler : IRequestHandler<QueryGetReservationForDay, IList<ResultGetReservationForDay>>
+    public class QueryGetReservationForDateHandler : IRequestHandler<QueryGetReservationForDate, IList<ResultGetReservationForDate>>
     {
         private readonly ReservationDbContext dbContext;
 
-        public QueryGetReservationForDayHandler(ReservationDbContext dbContext)
+        public QueryGetReservationForDateHandler(ReservationDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
-        public async Task<IList<ResultGetReservationForDay>> Handle(QueryGetReservationForDay request, 
+        public async Task<IList<ResultGetReservationForDate>> Handle(QueryGetReservationForDate request, 
             CancellationToken cancellationToken)
         {
-            IList<ResultGetReservationForDay>? resultReservationTimes = null;
+            IList<ResultGetReservationForDate>? resultReservationTimes = null;
 
             var queryGymReservation = dbContext.GymReservations
-                .Where(e => e.ReservationDate == DateOnly.FromDateTime(request.SelectedDay.Date));
+                .Where(e => e.ReservationDate == DateOnly.FromDateTime(request.SelectedDate.Date));
 
             var queryReservationTimes = dbContext.ReservationTime.AsQueryable();
 
-            resultReservationTimes = await queryReservationTimes.Select(d => new ResultGetReservationForDay()
+            resultReservationTimes = await queryReservationTimes.Select(d => new ResultGetReservationForDate()
             {
                 Id = d.Id,
                 StartTime = d.StartTime.ToString(),

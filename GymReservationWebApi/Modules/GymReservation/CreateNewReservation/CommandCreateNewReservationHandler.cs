@@ -1,7 +1,9 @@
 ﻿using GymReservationWebApi.Context;
+using GymReservationWebApi.Entities;
 using GymReservationWebApi.Entities.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace GymReservationWebApi.Modules.GymReservation.CreateNewReservation
 {
@@ -20,6 +22,7 @@ namespace GymReservationWebApi.Modules.GymReservation.CreateNewReservation
         public async Task<ResultCreateNewReservation> Handle(CommandCreateNewReservation command, CancellationToken cancellationToken)
         {
             var user = await userManager.FindByIdAsync(command.UserId);
+            //EntityEntry<Entities.GymReservation> result = null;
 
             if(user != null)
             {
@@ -33,6 +36,18 @@ namespace GymReservationWebApi.Modules.GymReservation.CreateNewReservation
                     ReservationTimeId = command.ReservationTimeId,
                     ReservationServiceId = command.ReservationServiceId,
                 };
+
+                if(command.StartDate == command.EndDate)
+                    reservation.ReservationDate = DateOnly.FromDateTime(command.StartDate);
+
+                //while(command.EndDate.Day >= command.StartDate.Day)
+                //{
+                //    reservation.ReservationDate = DateOnly.FromDateTime(command.StartDate);
+
+                //    result = await dbContext.GymReservations.AddAsync(reservation);
+
+                //    command.StartDate = command.StartDate.AddDays(1);
+                //}
 
                 var result = await dbContext.GymReservations.AddAsync(reservation);
 

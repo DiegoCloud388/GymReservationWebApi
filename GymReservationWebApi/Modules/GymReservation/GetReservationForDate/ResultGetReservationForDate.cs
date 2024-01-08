@@ -1,6 +1,6 @@
-﻿namespace GymReservationWebApi.Modules.GymReservation.GetReservationForDay
+﻿namespace GymReservationWebApi.Modules.GymReservation.GetReservationForDate
 {
-    public class ResultGetReservationForDay
+    public class ResultGetReservationForDate
     {
         public int Id { get; set; }
 
